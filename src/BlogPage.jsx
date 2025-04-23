@@ -1,21 +1,22 @@
-import { useEffect, useState } from "react";
-import ReactMarkdown from "react-markdown";
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
-const BlogPage = ({ postName }) => {
-  const [content, setContent] = useState("");
+function BlogPage() {
+  const { postName } = useParams()
+  const [content, setContent] = useState('')
 
   useEffect(() => {
-    import(`./posts/${postName}.md`)
-      .then(res => fetch(res.default))
+    fetch(`/posts/${postName}.md`)
       .then(res => res.text())
-      .then(text => setContent(text));
-  }, [postName]);
+      .then(text => setContent(text))
+  }, [postName])
 
   return (
-    <div style={{ padding: "2rem" }}>
-      <ReactMarkdown>{content}</ReactMarkdown>
+    <div style={{ whiteSpace: 'pre-wrap', padding: '2rem' }}>
+      <h1>{postName.replace(/-/g, ' ')}</h1>
+      <p>{content}</p>
     </div>
-  );
-};
+  )
+}
 
-export default BlogPage;
+export default BlogPage
