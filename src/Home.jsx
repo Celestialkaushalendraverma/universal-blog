@@ -9,7 +9,7 @@ import {
   ListItemText,
 } from "@mui/material";
 
-// Sample blog metadata –- ideally this should be dynamic in future.
+// Sample blog metadata - ideally this should be dynamic in future.
 const posts = [
   {
     title: "You can known star world",
