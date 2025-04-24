@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://prismatic-platypus-278b7a.netlify.app/sitemap.xml
